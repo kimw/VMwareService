@@ -8,6 +8,8 @@ automaticly at the time Windows startup.  When the Windows shutdown, the
 virtual machine will suspend automaticly.  And resume from the last time it
 suspended while the Windows startup again.
 
+[This file in Chinese edition](./README.zh-CN.md).
+
 
 REQUIREMENTS
 ------------
@@ -105,7 +107,7 @@ NEED TO BE KNOWN
 
 * If you want to edit the virtual machine's configuration in `VMware
   Workstation`, it's needed to stop VMwareService before, and start
-  VMwareService after the editing is done.
+  after the editing is done.
 
 
 LICENSE
