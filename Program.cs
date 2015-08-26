@@ -364,7 +364,7 @@ namespace VMwareService
                     if (i + 1 < retry)
                         Thread.Sleep(sleep * 1000);
                     else
-                        LogMsg("Reaches the max retry times. Stop trying.");
+                        LogMsg("Reaches the max retries. Stop trying.");
                 }
             }
             return retVal;
@@ -457,7 +457,7 @@ namespace VMwareService
                     if (i + 1 < retry)
                         Thread.Sleep(sleep * 1000);
                     else
-                        LogMsg("Reaches the max retry times. Stop trying.");
+                        LogMsg("Reaches the max retries. Stop trying.");
                 }
             }
             return retVal;
@@ -556,7 +556,7 @@ namespace VMwareService
                     if (i + 1 < retry)
                         Thread.Sleep(sleep * 1000);
                     else
-                        LogMsg("Reaches the max retry times. Stop trying.");
+                        LogMsg("Reaches the max retries. Stop trying.");
                 }
             }
             return retVal;
