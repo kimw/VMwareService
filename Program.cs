@@ -311,6 +311,8 @@ namespace VMwareService
                 p.StartInfo.UseShellExecute = false;
                 p.StartInfo.RedirectStandardError = true;
                 p.StartInfo.RedirectStandardOutput = true;
+                p.StartInfo.StandardErrorEncoding = Encoding.UTF8;
+                p.StartInfo.StandardOutputEncoding = Encoding.UTF8;
                 if (p.Start())
                 {
                     p.OutputDataReceived += OnProcessOutputDataReceived;
@@ -402,6 +404,8 @@ namespace VMwareService
                 p.StartInfo.UseShellExecute = false;
                 p.StartInfo.RedirectStandardError = true;
                 p.StartInfo.RedirectStandardOutput = true;
+                p.StartInfo.StandardErrorEncoding = Encoding.UTF8;
+                p.StartInfo.StandardOutputEncoding = Encoding.UTF8;
                 if (p.Start())
                 {
                     p.OutputDataReceived += OnProcessOutputDataReceived;
@@ -496,6 +500,8 @@ namespace VMwareService
                 p.StartInfo.UseShellExecute = false;
                 p.StartInfo.RedirectStandardError = true;
                 p.StartInfo.RedirectStandardOutput = true;
+                p.StartInfo.StandardErrorEncoding = Encoding.UTF8;
+                p.StartInfo.StandardOutputEncoding = Encoding.UTF8;
                 if (p.Start())
                 {
                     p.OutputDataReceived += OnProcessOutputDataReceived;
