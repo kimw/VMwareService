@@ -22,7 +22,7 @@ HOW TO USE
 1. Unzip the `VMwareService.zip` you downloaded from [release zone] into a
    directory.
 
-2. Create a plain text config file with your favorite editer (e.g. notepad)
+2. Create a plain text [config file](#config-file) with your favorite editer (e.g. notepad)
    in the same diretory you unzipped `VMwareService.zip`.
 
 3. Type the commands as follow in command line window (administrator is needed):
