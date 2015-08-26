@@ -56,22 +56,29 @@ VMwareService 的日志文件的名称是一个被命名为 VMwareService.log �
 * 下面的日志说明你试图关闭一个没有被开启的虚拟机。VMwareService 多次尝试完成你的指令，每次间隔 5 秒钟，最终在连续努力 10 次均失败后放弃执行。
 
 ```
-Trying to stop in 5 seconds. (try 1 of 10 times)
-Stopping VMware process ...
-Error: The virtual machine is not powered on: C:\Users\kimw\Documents\Virtual Machines\Ubuntu-Trusty-VM\Ubuntu-Trusty-VM.vmx
-ERROR: Failed to stop VMware process. (error code: -1)
-Trying to stop in 5 seconds. (try 2 of 10 times)
-Stopping VMware process ...
-Error: The virtual machine is not powered on: C:\Users\kimw\Documents\Virtual Machines\Ubuntu-Trusty-VM\Ubuntu-Trusty-VM.vmx
-ERROR: Failed to stop VMware process. (error code: -1)
+[2015/8/26 17:06:27]	Trying to stop in 5 seconds. (try 1 of 10 times)
+[2015/8/26 17:06:27]	Stopping VMware process ...
+[2015/8/26 17:06:28]	Error: The virtual machine is not powered on: C:\Users\kimw\Documents\Virtual Machines\Ubuntu-Trusty-VM\Ubuntu-Trusty-VM.vmx
+[2015/8/26 17:06:28]	ERROR: Failed to stop VMware process. (error code: -1)
+[2015/8/26 17:06:33]	Trying to stop in 5 seconds. (try 2 of 10 times)
+[2015/8/26 17:06:33]	Stopping VMware process ...
+[2015/8/26 17:06:33]	Error: The virtual machine is not powered on: C:\Users\kimw\Documents\Virtual Machines\Ubuntu-Trusty-VM\Ubuntu-Trusty-VM.vmx
+[2015/8/26 17:06:33]	ERROR: Failed to stop VMware process. (error code: -1)
 ...
+[2015/8/26 17:07:16]	Trying to stop in 5 seconds. (try 10 of 10 times)
+[2015/8/26 17:07:16]	Stopping VMware process ...
+[2015/8/26 17:07:16]	Error: The virtual machine is not powered on: C:\Users\kimw\Documents\Virtual Machines\Ubuntu-Trusty-VM\Ubuntu-Trusty-VM.vmx
+[2015/8/26 17:07:16]	ERROR: Failed to stop VMware process. (error code: -1)
+[2015/8/26 17:07:16]	Reaches the max retry times. Stop trying.
+```
+
+* 下面的日志说明缺失配置文件。
+
+```
+[2015/8/26 17:31:49]	Trying to start in 5 seconds. (try 1 of 10 times)
+[2015/8/26 17:31:49]	Starting VMware process ...
+[2015/8/26 17:31:49]	Could not find config file. (Current directory: C:\Users\kimw\Documents\Visual Studio 2015\Projects\VirtualMachineServices\VMwareService\bin\Debug)
 ...
-...
-Trying to stop in 5 seconds. (try 10 of 10 times)
-Stopping VMware process ...
-Error: The virtual machine is not powered on: C:\Users\kimw\Documents\Virtual Machines\Ubuntu-Trusty-VM\Ubuntu-Trusty-VM.vmx
-ERROR: Failed to stop VMware process. (error code: -1)
-Reaches the max retry times. Stop trying.
 ```
 
 
