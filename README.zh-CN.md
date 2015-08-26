@@ -3,7 +3,7 @@
 
 一个可以将 VMware 虚拟机包装成 Windows 服务程序的软件。
 
-用 VMwareService 包装好的虚拟机可以跟随 Windows 开机时自动加载；Windows 关机时自动挂起在虚拟机中的当前操作，并在下一次 Windows 开机时恢复到上次关机的状态。
+被 VMwareService 包装好的虚拟机可以跟随 Windows 开机时自动加载；Windows 关机时自动挂起（或称为休眠）虚拟机，并在下一次 Windows 开机时恢复到上次关机的状态。
 
 
 运行要求
@@ -16,7 +16,7 @@
 --------
 开始使用 VMwareService 需要完成以下三个简单的步骤：
 
-1. 将在发布区下载的最新版软件压缩文件解压缩到一个目录。
+1. 将在[发布区]下载的最新版软件压缩文件解压缩到一个目录。
 
 2. 用你熟悉的编辑器（例如 Windows 操作系统自带的“记事本”）在该目录中创建一个名为 VMwareService.cfg 的文本文件。该文件是 VMwareService 的配置文件，配置格式在“[配置文件]”一节中有说明。
 
@@ -85,9 +85,12 @@ VMwareService 的日志文件的名称是一个被命名为 VMwareService.log �
 
 注意事项
 --------
-因为 `VMware Workstation` 在运行期间会锁定虚拟机，造成虚拟机无法访问。所以在`启动`、`停止`或者`重新启动`服务的时候，需要先关闭 `VMware Workstation`，待`启动`、`停止`或者`重新启动`完成后再打开 `VMware Workstation`。否则 `VMwareService` 不能成功启动。
+* 因为 `VMware Workstation` 在运行期间会锁定虚拟机，造成虚拟机无法访问。
+所以在`启动`、`停止`或者`重新启动`服务的时候，需要先关闭 `VMware Workstation`，
+待`启动`、`停止`或者`重新启动`完成后再打开 `VMware Workstation`。
+否则 `VMwareService` 不能成功启动。
 
-如果需要`编辑虚拟机设置`，需要先`停止`服务。待完成`编辑虚拟机设置`后，再`启动`服务。
+* 如果需要在 `VMware Workstation` 中`编辑虚拟机设置`，需要先`停止`服务。待完成`编辑虚拟机设置`后，再`启动`服务。
 
 
 许可证
@@ -104,5 +107,6 @@ VMwareService 的日志文件的名称是一个被命名为 VMwareService.log �
 请参照<http://www.gnu.org/licenses/>.
 
 
+[发布区]: https://github.com/kimw/VMwareService/releases
 [Sublime Text]: https://www.sublimetext.com/
 [GPL v3.0 许可证]: https://raw.githubusercontent.com/kimw/VMwareService/master/LICENSE

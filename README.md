@@ -3,25 +3,27 @@
 
 A VMware Workstation virtual machine Windows service wrapper.
 
-The virtual machine wrapped with VMwareService can be loaded automaticly
-at the time Windows startup.  When the Windows shutdown, the virtual machine
-will suspend automaticly.  And resume from the last time it suspended while
-the Windows startup again.
+VMwareService wraps virtual machine as a windows service, which can be loaded
+automaticly at the time Windows startup.  When the Windows shutdown, the
+virtual machine will suspend automaticly.  And resume from the last time it
+suspended while the Windows startup again.
 
 
 REQUIREMENTS
 ------------
 * .NET Framework 4.0 is required.
-* Create VMwareService.cfg file manully is required.
+* Create `VMwareService.cfg` file manully is required.
 
 
 HOW TO USE
 ----------
-1. Unzip the zip file you downloaded from [release zone] into a directory.
+1. Unzip the `VMwareService.zip` you downloaded from [release zone] into a
+   directory.
 
-2. Create a plain text config file with your favorite editer (e.g. notepad).
+2. Create a plain text config file with your favorite editer (e.g. notepad)
+   in the same diretory you unzipped `VMwareService.zip`.
 
-3. Type the command as follow in command line window (administrator is needed):
+3. Type the commands as follow in command line window (administrator is needed):
 
 ```batch
 VMwareService install
@@ -56,12 +58,54 @@ start them one by one.
 
 LOG FILE
 --------
-T.B.C
+The VMwareService log file is a plain text file named as `VMwareService.log`,
+and stored in the same directory of `VMwareService.exe`.  This file logs
+start/stop, install/uninstall, and error informations of VMwareServcice while
+it runs.  Usally, you don't need to care about this file and it's informations, but get problems in unsing VMwareService. e.g:
+
+* The following logs declares that you're attempting to stop a virtual machine
+  that is never started.  VmwareService tried times to accomplte it with
+  interval 5 seconds.  And stopped the tries after 10 times.
+
+```
+[2015/8/26 17:06:27]	Trying to stop in 5 seconds. (try 1 of 10 times)
+[2015/8/26 17:06:27]	Stopping VMware process ...
+[2015/8/26 17:06:28]	Error: The virtual machine is not powered on: C:\Users\somebody\Documents\Virtual Machines\Ubuntu-Trusty-VM\Ubuntu-Trusty-VM.vmx
+[2015/8/26 17:06:28]	ERROR: Failed to stop VMware process. (error code: -1)
+[2015/8/26 17:06:33]	Trying to stop in 5 seconds. (try 2 of 10 times)
+[2015/8/26 17:06:33]	Stopping VMware process ...
+[2015/8/26 17:06:33]	Error: The virtual machine is not powered on: C:\Users\somebody\Documents\Virtual Machines\Ubuntu-Trusty-VM\Ubuntu-Trusty-VM.vmx
+[2015/8/26 17:06:33]	ERROR: Failed to stop VMware process. (error code: -1)
+...
+[2015/8/26 17:07:16]	Trying to stop in 5 seconds. (try 10 of 10 times)
+[2015/8/26 17:07:16]	Stopping VMware process ...
+[2015/8/26 17:07:16]	Error: The virtual machine is not powered on: C:\Users\somebody\Documents\Virtual Machines\Ubuntu-Trusty-VM\Ubuntu-Trusty-VM.vmx
+[2015/8/26 17:07:16]	ERROR: Failed to stop VMware process. (error code: -1)
+[2015/8/26 17:07:16]	Reaches the max retry times. Stop trying.
+```
+
+* The following logs declares that the config file is missing.
+
+```
+[2015/8/26 17:31:49]	Trying to start in 5 seconds. (try 1 of 10 times)
+[2015/8/26 17:31:49]	Starting VMware process ...
+[2015/8/26 17:31:49]	Could not find config file. (Current directory: C:\Users\somebody\Documents\Visual Studio 2015\Projects\VirtualMachineServices\VMwareService\bin\Debug)
+...
+```
 
 
 NEED TO BE KNOWN
 ----------------
-T.B.C
+* The `VMware Workstation` locks virtual machine while it run.  In this case,
+  the virtual machine can not be accessed by another application, including
+  VMwareService.  So, it's needed to close `VMware Workstation` application
+  before start, stop, or restart the VMwareService.  And restart `VMware
+  Workstation` after VMwareService is started, stopped, or restarted done.
+  Otherwise, the VMwareService will not work correctly.
+
+* If you want to edit the virtual machine's configuration in `VMware
+  Workstation`, it's needed to stop VMwareService before, and start
+  VMwareService after the editing is done.
 
 
 LICENSE
