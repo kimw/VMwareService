@@ -1,8 +1,9 @@
-﻿# VMwareService
+﻿VMwareService
+=============
 
 一个可以将 VMware 虚拟机包装成 Windows 服务程序的软件。
 
-用 VMwareService 包装好的虚拟机可以跟随 Windows 操作系统开机时自动加载；Windows 操作系统关机时自动挂起在虚拟机中的当前操作，并在下一次 Windows 操作系统开机时恢复到上次关机的状态。
+用 VMwareService 包装好的虚拟机可以跟随 Windows 开机时自动加载；Windows 关机时自动挂起在虚拟机中的当前操作，并在下一次 Windows 开机时恢复到上次关机的状态。
 
 
 运行要求
@@ -35,8 +36,8 @@ VMwareService 配置文件是一个被命名为 VMwareService.cfg 的纯文本�
 配置文件中要求每一行一个 VMware 的 .vmx 文件的完整路径。就像下面这个例子一样：
 
 ```
-C:\Users\kimw\Documents\Virtual Machines\Ubuntu-Trusty-VM\Ubuntu-Trusty-VM.vmx
-C:\Users\kimw\Documents\Virtual Machines\Ubuntu-Vivid-VM\Ubuntu-Vivid-VM.vmx
+C:\Users\somebody\Documents\Virtual Machines\Ubuntu-Trusty-VM\Ubuntu-Trusty-VM.vmx
+C:\Users\somebody\Documents\Virtual Machines\Ubuntu-Vivid-VM\Ubuntu-Vivid-VM.vmx
 ```
 
 VMwareService 在启动时逐行读取这些 .vmx 文件的完整路径，然后一个一个的启动这些虚拟机。
@@ -58,16 +59,16 @@ VMwareService 的日志文件的名称是一个被命名为 VMwareService.log �
 ```
 [2015/8/26 17:06:27]	Trying to stop in 5 seconds. (try 1 of 10 times)
 [2015/8/26 17:06:27]	Stopping VMware process ...
-[2015/8/26 17:06:28]	Error: The virtual machine is not powered on: C:\Users\kimw\Documents\Virtual Machines\Ubuntu-Trusty-VM\Ubuntu-Trusty-VM.vmx
+[2015/8/26 17:06:28]	Error: The virtual machine is not powered on: C:\Users\somebody\Documents\Virtual Machines\Ubuntu-Trusty-VM\Ubuntu-Trusty-VM.vmx
 [2015/8/26 17:06:28]	ERROR: Failed to stop VMware process. (error code: -1)
 [2015/8/26 17:06:33]	Trying to stop in 5 seconds. (try 2 of 10 times)
 [2015/8/26 17:06:33]	Stopping VMware process ...
-[2015/8/26 17:06:33]	Error: The virtual machine is not powered on: C:\Users\kimw\Documents\Virtual Machines\Ubuntu-Trusty-VM\Ubuntu-Trusty-VM.vmx
+[2015/8/26 17:06:33]	Error: The virtual machine is not powered on: C:\Users\somebody\Documents\Virtual Machines\Ubuntu-Trusty-VM\Ubuntu-Trusty-VM.vmx
 [2015/8/26 17:06:33]	ERROR: Failed to stop VMware process. (error code: -1)
 ...
 [2015/8/26 17:07:16]	Trying to stop in 5 seconds. (try 10 of 10 times)
 [2015/8/26 17:07:16]	Stopping VMware process ...
-[2015/8/26 17:07:16]	Error: The virtual machine is not powered on: C:\Users\kimw\Documents\Virtual Machines\Ubuntu-Trusty-VM\Ubuntu-Trusty-VM.vmx
+[2015/8/26 17:07:16]	Error: The virtual machine is not powered on: C:\Users\somebody\Documents\Virtual Machines\Ubuntu-Trusty-VM\Ubuntu-Trusty-VM.vmx
 [2015/8/26 17:07:16]	ERROR: Failed to stop VMware process. (error code: -1)
 [2015/8/26 17:07:16]	Reaches the max retry times. Stop trying.
 ```
@@ -77,7 +78,7 @@ VMwareService 的日志文件的名称是一个被命名为 VMwareService.log �
 ```
 [2015/8/26 17:31:49]	Trying to start in 5 seconds. (try 1 of 10 times)
 [2015/8/26 17:31:49]	Starting VMware process ...
-[2015/8/26 17:31:49]	Could not find config file. (Current directory: C:\Users\kimw\Documents\Visual Studio 2015\Projects\VirtualMachineServices\VMwareService\bin\Debug)
+[2015/8/26 17:31:49]	Could not find config file. (Current directory: C:\Users\somebody\Documents\Visual Studio 2015\Projects\VirtualMachineServices\VMwareService\bin\Debug)
 ...
 ```
 
@@ -91,7 +92,16 @@ VMwareService 的日志文件的名称是一个被命名为 VMwareService.log �
 
 许可证
 ------
-本软件遵循 [GPL v3.0 许可证]。
+版权所有 2015 kimw
+
+本程序为自由软件；您可依据自由软件基金会所发表的 GNU 通用公共授权条款，对本程序再次发布
+和/或修改；无论您依据的是本授权的第三版，或（您可选的）任一日后发行的版本。
+
+本程序是基于使用目的而加以发布，然而不负任何担保责任；亦无对适售性或特定目的适用性所为的
+默示性担保。详情请参照GNU通用公共授权。
+
+您应已收到附随于本程序的GNU通用公共授权的副本；如果没有，
+请参照<http://www.gnu.org/licenses/>.
 
 
 [Sublime Text]: https://www.sublimetext.com/
