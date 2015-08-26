@@ -34,19 +34,19 @@ NET START VMwareService
 CONFIG FILE
 -----------
 The config file is a plain text file with name `VMwareService.cfg`, and stored
-in the same directory as VMwareService.exe file is.  You can use any editor
-you faviote (e.g. `Notepad` with Windows, or [Sublime Text] is mine) to
+in the same directory as where `VMwareService.exe` file is.  You can use any
+editor you faviote (e.g. `Notepad` with Windows, or [Sublime Text] is mine) to
 create/edit it.
 
-It's filled within .vmx file (VMware virtual machine file) full path line by
-line as follow:
+It's filled within the full path of .vmx files (VMware virtual machine file)
+line by line as follow:
 
 ```
 C:\Users\somebody\Documents\Virtual Machines\Ubuntu-Trusty-VM\Ubuntu-Trusty-VM.vmx
 C:\Users\somebody\Documents\Virtual Machines\Ubuntu-Vivid-VM\Ubuntu-Vivid-VM.vmx
 ```
 
-The VMwareService read these .vmx file pull path from the config file, and
+The VMwareService read these .vmx file's pull path from the config file, and
 start them one by one.
 
 **Note**
