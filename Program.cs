@@ -731,7 +731,7 @@ namespace VMwareService
             Console.WriteLine("Usage:");
             Console.WriteLine("    VMwareService install [service-name]");
             Console.WriteLine("        or");
-            Console.WriteLine("    VMwareService uninstall|remove [service-name]");
+            Console.WriteLine("    VMwareService uninstall | remove [service-name]");
             Console.WriteLine("        or");
             Console.WriteLine("    VMwareService start | stop | restart [--as-service | -s [service-name]]");
             Console.WriteLine("        or");
