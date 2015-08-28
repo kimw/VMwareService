@@ -578,7 +578,7 @@ namespace VMwareService
             using (Process p = new Process())
             {
                 p.StartInfo.FileName = "sc";
-                p.StartInfo.Arguments = string.Format("create {0} binpath= \"{1}\" start= auto", serviceName, Path.Combine(AppDomain.CurrentDomain.BaseDirectory, AppDomain.CurrentDomain.FriendlyName));
+                p.StartInfo.Arguments = string.Format("create {0} binpath= \"{1}\" start= auto depend= VMAuthdService", serviceName, Path.Combine(AppDomain.CurrentDomain.BaseDirectory, AppDomain.CurrentDomain.FriendlyName));
                 p.StartInfo.UseShellExecute = false;
                 p.StartInfo.RedirectStandardError = true;
                 p.StartInfo.RedirectStandardOutput = true;
